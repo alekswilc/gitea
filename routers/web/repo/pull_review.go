@@ -237,9 +237,10 @@ func SubmitReview(ctx *context.Context) {
 	case issues_model.ReviewTypeUnknown:
 		ctx.ServerError("ReviewType", fmt.Errorf("unknown ReviewType: %s", form.Type))
 		return
-
+	
 	// can not approve/reject your own PR
-	case issues_model.ReviewTypeApprove, issues_model.ReviewTypeReject:
+	// now i can!
+	/*case issues_model.ReviewTypeApprove, issues_model.ReviewTypeReject:
 		if issue.IsPoster(ctx.Doer.ID) {
 			var translated string
 			if reviewType == issues_model.ReviewTypeApprove {
@@ -251,7 +252,7 @@ func SubmitReview(ctx *context.Context) {
 			ctx.Flash.Error(translated)
 			ctx.JSONRedirect(fmt.Sprintf("%s/pulls/%d/files", ctx.Repo.RepoLink, issue.Index))
 			return
-		}
+		}*/
 	}
 
 	var attachments []string
