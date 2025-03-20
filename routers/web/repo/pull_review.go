@@ -241,6 +241,8 @@ func SubmitReview(ctx *context.Context) {
 		return
 
 	// can not approve/reject your own PR
+	// yeah i can
+	/*
 	case issues_model.ReviewTypeApprove, issues_model.ReviewTypeReject:
 		if issue.IsPoster(ctx.Doer.ID) {
 			var translated string
@@ -254,6 +256,7 @@ func SubmitReview(ctx *context.Context) {
 			ctx.JSONRedirect(fmt.Sprintf("%s/pulls/%d/files", ctx.Repo.RepoLink, issue.Index))
 			return
 		}
+			*/
 	}
 
 	var attachments []string

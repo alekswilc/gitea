@@ -29,7 +29,7 @@
 					</div>
 				{{end}}
 				<div class="divider"></div>
-				{{$showSelfTooltip := (and $.IsSigned ($.Issue.IsPoster $.SignedUser.ID))}}
+				{{$showSelfTooltip := false/*(and $.IsSigned ($.Issue.IsPoster $.SignedUser.ID))*/}}
 				{{if not $.Issue.IsClosed}}
 					{{if $showSelfTooltip}}
 						<span class="tw-inline-block" data-tooltip-content="{{ctx.Locale.Tr "repo.diff.review.self_approve"}}">
